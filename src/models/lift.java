@@ -216,7 +216,7 @@ public class lift {
         
         @Override
         public String toString(){
-            return "\nJumlah Kapasitas : "+id+" Orang. Kapasitas Maksimum : "+(total + getM1());
+            return "\nJumlah Kapasitas : "+id+" Orang. Kapasitas Maksimum : "+(total + getM1()+" Kg");
         }
     }
     
