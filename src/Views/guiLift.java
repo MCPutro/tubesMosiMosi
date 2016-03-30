@@ -6,6 +6,7 @@
 package Views;
 
 
+import javax.swing.JTextArea;
 import models.lift;
 
 /**
@@ -18,7 +19,8 @@ public class guiLift extends javax.swing.JFrame {
      * Creates new form guiLift
      */
     
-    lift lft = new lift();
+    private lift lft = new lift();
+    private Thread th = null;
         
     public guiLift() {
         initComponents();
@@ -538,8 +540,16 @@ public class guiLift extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JTextArea getjTextArea1()
+    {
+        return jTextArea1;
+    }
+
+    
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         // TODO add your handling code here:
+        th = new Thread(new ClassThread(this, lft));
+        
         double berat = 0;
         try {
             berat = Double.parseDouble(jberat.getText());
@@ -548,7 +558,8 @@ public class guiLift extends javax.swing.JFrame {
         }
         
         lft.setBeratOrang(berat);
-        jTextArea1.setText(lft.pencarian());
+        th.start();
+        
         
         
          
