@@ -23,7 +23,7 @@ public class lift {
     private double m2 = 950;
     private double m1 = 500;
     private int n=0;
-    ArrayList<Orang> temp = new ArrayList<Orang>();
+    
     
     
     public double getFaktorKeseimbangan(double kapasitasElevator){
@@ -45,30 +45,7 @@ public class lift {
         return i*this.beratOrang;
     }
     
-    public String pencarian(){
-        String kata= new String();
-        String status = new String();
-        int i = 1;
-        double total = 0;
-        while(total < m2){
-            total = m1 + (getTotalPenumpang(i)*getFaktorKeseimbangan(getTotalPenumpang(i)));
-            if (total < getM2())
-            {
-                status = "CUKUP";
-            }
-            else
-            {
-                status = "TIDAK CUKUP";
-            }
-            temp.add(new Orang(i, total));
-            kata += "Orang ke-"+i+". Status : "+status+" \n";
-            i++;
-        }
-        temp.remove(temp.size()-1);
-        //System.out.println(total+" dengan maks orang "+(i-1));
-        return (kata += getTemp().get(getTemp().size()-1)+"\n");
-    }
-
+   
    
     
      /**
@@ -141,19 +118,7 @@ public class lift {
         this.n = n;
     }
 
-    /**
-     * @return the temp
-     */
-    public ArrayList<Orang> getTemp() {
-        return temp;
-    }
-
-    /**
-     * @param temp the temp to set
-     */
-    public void setTemp(ArrayList<Orang> temp) {
-        this.temp = temp;
-    }
+    
 
     /**
      * @return the tpl
@@ -197,7 +162,7 @@ public class lift {
         this.kecLift = kecLift;
     }
 
-    private class Orang{
+    public class Orang{
         private int id;
         private double total;
 
@@ -216,7 +181,7 @@ public class lift {
         
         @Override
         public String toString(){
-            return "\nJumlah Kapasitas : "+id+" Orang. Kapasitas Maksimum : "+(total + getM1());
+            return "\nJumlah Kapasitas : "+id+" Orang. Kapasitas Maksimum : "+(total + getM1()+" Kg");
         }
     }
     
