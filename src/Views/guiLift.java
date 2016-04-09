@@ -6,6 +6,8 @@
 package Views;
 
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JTextArea;
 import models.lift;
 
@@ -24,6 +26,14 @@ public class guiLift extends javax.swing.JFrame {
         
     public guiLift() {
         initComponents();
+        this.addWindowListener(new WindowAdapter() {
+
+            @Override
+            public void windowOpened(WindowEvent e) {
+                jberat.requestFocus();
+            }
+            
+        });
         jTextField1.setText(String.valueOf(lft.getLantai()));
         jTextField1.setVisible(true);
         jTextField2.setText(String.valueOf(lft.getTpl()));
@@ -409,6 +419,16 @@ public class guiLift extends javax.swing.JFrame {
         jLabel20.setText("Rata-Rata Berat Per Penumpang (kg)");
 
         jberat.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jberat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jberatActionPerformed(evt);
+            }
+        });
+        jberat.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jberatKeyPressed(evt);
+            }
+        });
 
         jButton1.setText("Submit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -581,6 +601,15 @@ public class guiLift extends javax.swing.JFrame {
         lft.setBeratOrang(berat);
         th.start();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jberatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jberatKeyPressed
+        
+    }//GEN-LAST:event_jberatKeyPressed
+
+    private void jberatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jberatActionPerformed
+        // TODO add your handling code here:
+        jButton1ActionPerformed(evt);
+    }//GEN-LAST:event_jberatActionPerformed
 
     /**
      * @param args the command line arguments
